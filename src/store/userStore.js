@@ -1,16 +1,15 @@
-import { create } from "zustand";
-import { apiClient } from "../utils/apiClient.js";
+import { create } from 'zustand';
+import { apiClient } from '../utils/apiClient';
 
 export const useUserStore = create((set, get) => ({
   users: {},
 
-  setUser: (user) =>
-    set((state) => ({
-      users: {
-        ...state.users,
-        [user.id]: user,
-      },
-    })),
+  setUser: (user) => set((state) => ({
+    users: {
+      ...state.users,
+      [user.id]: user
+    }
+  })),
 
   fetchUser: async (userId) => {
     try {
@@ -24,9 +23,9 @@ export const useUserStore = create((set, get) => ({
 
   createUser: async (userData) => {
     try {
-      const user = await apiClient("/users/", {
-        method: "POST",
-        body: userData,
+      const user = await apiClient('/users/', {
+        method: 'POST',
+        body: userData
       });
       get().setUser(user);
       return user;
@@ -35,30 +34,37 @@ export const useUserStore = create((set, get) => ({
     }
   },
 
-  updateProfilePicture: async (userId, imageFile) => {
+  updateUser: async (userId, userData) => {
     try {
-      console.log(
-        "userStore: Starting profile picture update for user:",
-        userId
-      );
-
-      const formData = new FormData();
-      formData.append("profile_pic", imageFile);
-
-      const updatedUser = await apiClient(`/users/${userId}/profile-picture`, {
-        method: "PUT",
-        body: formData,
+      const updatedUser = await apiClient(`/users/${userId}`, {
+        method: 'PUT',
+        body: userData
       });
-
-      console.log("userStore: Received updated user:", updatedUser);
-
+      
       get().setUser(updatedUser);
       return updatedUser;
     } catch (error) {
-      console.error("userStore: Error updating profile picture:", error);
       throw error;
     }
   },
 
+  updateProfilePicture: async (userId, imageFile) => {
+    try {
+      const formData = new FormData();
+      formData.append('profile_pic', imageFile);
+
+      const updatedUser = await apiClient(`/users/${userId}/profile-picture`, {
+        method: 'PUT',
+        body: formData,
+      });
+      
+      get().setUser(updatedUser);
+      return updatedUser;
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  // Getters
   getUserById: (userId) => get().users[userId],
 }));

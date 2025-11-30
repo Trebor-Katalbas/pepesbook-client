@@ -17,9 +17,12 @@ export const useAuthStore = create(
         isAuthenticated: false 
       }),
 
-      updateUser: (user) => set((state) => ({
-        currentUser: state.currentUser?.id === user.id ? user : state.currentUser
-      })),
+      updateUser: (user) => set((state) => {
+        console.log('Updating user in authStore:', user);
+        return {
+          currentUser: state.currentUser?.id === user.id ? { ...state.currentUser, ...user } : state.currentUser
+        }
+      }),
     }),
     {
       name: 'auth-storage',
