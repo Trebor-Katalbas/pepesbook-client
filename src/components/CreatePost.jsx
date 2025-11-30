@@ -19,10 +19,10 @@ import {
   Avatar,
   Text
 } from '@chakra-ui/react';
-import { usePostStore } from '../store/postStore';
-import { useAuthStore } from '../store/authStore';
-import ImageUpload from './ImageUpload';
-import { getAbsoluteImageUrl } from '../utils/apiClient';
+import { usePostStore } from '../store/postStore.js';
+import { useAuthStore } from '../store/authStore.js';
+import ImageUpload from './ImageUpload.jsx';
+import { getAbsoluteImageUrl } from '../utils/apiClient.js';
 
 const CreatePost = () => {
   const [content, setContent] = useState('');

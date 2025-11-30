@@ -11,9 +11,9 @@ import {
   useToast,
   Image,
 } from "@chakra-ui/react";
-import { useAuthStore } from "../store/authStore";
-import { useUserStore } from "../store/userStore";
-import ProfilePictureUpload from "./ProfilePictureUpload";
+import { useAuthStore } from "../store/authStore.js";
+import { useUserStore } from "../store/userStore.js";
+import ProfilePictureUpload from "./ProfilePictureUpload.jsx";
 import logo from "../assets/pepesbook-logo.png";
 
 const LoginForm = () => {

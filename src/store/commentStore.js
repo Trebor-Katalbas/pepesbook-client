@@ -1,6 +1,6 @@
 import { create } from 'zustand';
-import { apiClient } from '../utils/apiClient';
-import { useAuthStore } from './authStore';
+import { apiClient } from '../utils/apiClient.js';
+import { useAuthStore } from './authStore.js';
 
 export const useCommentStore = create((set, get) => ({
   comments: {},

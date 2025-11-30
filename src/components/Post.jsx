@@ -29,14 +29,14 @@ import {
   PopoverContent,
   PopoverBody,
 } from "@chakra-ui/react";
-import { useUserStore } from "../store/userStore";
-import { useCommentStore } from "../store/commentStore";
-import { useReactionStore } from "../store/reactionStore";
-import { useAuthStore } from "../store/authStore";
-import { usePostStore } from "../store/postStore";
+import { useUserStore } from "../store/userStore.js";
+import { useCommentStore } from "../store/commentStore.js";
+import { useReactionStore } from "../store/reactionStore.js";
+import { useAuthStore } from "../store/authStore.js";
+import { usePostStore } from "../store/postStore.js";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { getAbsoluteImageUrl } from "../utils/apiClient";
+import { getAbsoluteImageUrl } from "../utils/apiClient.js";
 
 const Post = ({ post }) => {
   const [showComments, setShowComments] = useState(false);

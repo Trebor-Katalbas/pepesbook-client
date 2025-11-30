@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { ChakraProvider, Box, Container, VStack } from '@chakra-ui/react';
-import { useAuthStore } from './store/authStore';
-import { usePostStore } from './store/postStore';
-import LoginForm from './components/LoginForm';
-import Feed from './components/Feed';
-import CreatePost from './components/CreatePost';
-import AppHeader from './components/AppHeader';
+import { useAuthStore } from './store/authStore.js';
+import { usePostStore } from './store/postStore.js';
+import LoginForm from './components/LoginForm.jsx';
+import Feed from './components/Feed.jsx';
+import CreatePost from './components/CreatePost.jsx';
+import AppHeader from './components/AppHeader.jsx';
 
 function App() {
   // eslint-disable-next-line

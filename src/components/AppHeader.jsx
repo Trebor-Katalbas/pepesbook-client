@@ -18,12 +18,12 @@ import {
   Show,
   Hide,
 } from "@chakra-ui/react";
-import { useAuthStore } from "../store/authStore";
-import { useUserStore } from "../store/userStore";
-import ProfilePictureUpload from "./ProfilePictureUpload";
+import { useAuthStore } from "../store/authStore.js";
+import { useUserStore } from "../store/userStore.js";
+import ProfilePictureUpload from "./ProfilePictureUpload.jsx";
 import { FiCamera, FiUser } from "react-icons/fi";
 import logo from "../assets/pepesbook-logo.png";
-import { getAbsoluteImageUrl } from "../utils/apiClient";
+import { getAbsoluteImageUrl } from "../utils/apiClient.js";
 
 const AppHeader = () => {
   const currentUser = useAuthStore((state) => state.currentUser);

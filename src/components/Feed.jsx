@@ -1,6 +1,6 @@
 import React from 'react';
 import { VStack, Text, Spinner, Center } from '@chakra-ui/react';
-import Post from './Post';
+import Post from './Post.jsx';
 
 const Feed = ({ posts, isLoading }) => {
   if (isLoading) {
